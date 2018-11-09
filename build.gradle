@@ -1,0 +1,30 @@
+plugins {
+    id 'java'
+}
+
+group 'com.erithstudio.app'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'net.java.dev.jna', name: 'jna', version: '5.0.0'
+    compile group: 'net.java.dev.jna', name: 'jna-platform', version: '5.0.0'
+    runtime files('libs/jna-utils.jar')
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src/main/java', 'src_generic/main/java', 'src_win/main/java', 'src_mac/main/java']
+        }
+        resources {
+            srcDirs = ['src/main/resources', 'src_generic/main/resources', 'src_win/main/resources', 'src_mac/main/resources']
+        }
+    }
+}
