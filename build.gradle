@@ -2,6 +2,9 @@ plugins {
     id 'java'
 }
 
+compileJava.options.encoding = 'UTF-8'
+compileTestJava.options.encoding = 'UTF-8'
+javadoc.options.encoding = 'UTF-8'
 group 'com.erithstudio.app'
 version '1.0-SNAPSHOT'
 
@@ -9,11 +12,16 @@ sourceCompatibility = 1.8
 
 repositories {
     mavenCentral()
+    maven {
+        url "http://repo.spring.io/plugins-release/"
+    }
 }
 
 dependencies {
     compile group: 'net.java.dev.jna', name: 'jna', version: '5.0.0'
     compile group: 'net.java.dev.jna', name: 'jna-platform', version: '5.0.0'
+    compile group: 'net.sf.nimrod', name: 'nimrod-laf', version: '1.2'
+    compile group: 'org.netbeans.external', name: 'AbsoluteLayout', version: 'RELEASE701'
     runtime files('libs/jna-utils.jar')
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
